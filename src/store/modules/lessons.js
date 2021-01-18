@@ -1,4 +1,4 @@
-import lessonApi from '@/api/lesson'
+import lessonsApi from '@/api/lessons'
 
 const state = {
   data: null,
@@ -7,34 +7,33 @@ const state = {
 }
 
 const mutations = {
-  getLessonStart(state) {
+  getLessonsStart(state) {
     state.isLoading = true
     state.data = null
   },
 
-  getLessonSuccess(state, payload) {
+  getLessonsSuccess(state, payload) {
     state.isLoading = false
     state.data = payload
   },
 
-  getLessonFailure(state) {
+  getLessonsFailure(state) {
     state.isLoading = false
   }
 }
 
 const actions = {
-  getLesson(context, {slug}) {
+  getLessons(context) {
     return new Promise(resolve => {
-      context.commit('getLessonStart')
-      lessonApi
-        .getLesson(slug)
+      context.commit('getLessonsStart')
+      lessonsApi
+        .getLessons()
         .then(response => {
-          console.log(response.data)
-          context.commit('getLessonSuccess', response.data)
+          context.commit('getLessonsSuccess', response.data)
           resolve(response.data)
         })
         .catch(() => {
-          context.commit('getLessonFailure')
+          context.commit('getLessonsFailure')
         })
     })
   }

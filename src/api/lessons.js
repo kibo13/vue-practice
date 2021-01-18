@@ -1,9 +1,9 @@
 import axios from '@/api/axios'
 
-const getCourse = () => {
+const getLessons = () => {
   return axios.get(`/lessons`)
 }
 
 export default {
-  getCourse
+  getLessons
 }

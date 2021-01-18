@@ -1,0 +1,3 @@
+<template>
+  <h1>Lesson #2</h1>
+</template>

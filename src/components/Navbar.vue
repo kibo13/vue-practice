@@ -1,5 +1,5 @@
 <template>
-  <div class="md:col-span-1 md:flex md:justify-end">
+  <div>
     <nav class="text-right w-full">
       <div class="flex justify-between items-center">
         <h1
@@ -7,6 +7,7 @@
         >
           <router-link :to="{name: 'home'}">Практика по Vue.js</router-link>
         </h1>
+
         <div class="px-4 cursor-pointer md:hidden" id="burger">
           <svg
             class="w-6 h-6"
@@ -25,12 +26,12 @@
         </div>
       </div>
 
-      <div v-if="isLoading">Загрузка данных...</div>
-      <div v-if="error">Что-то пошло не так</div>
+      <app-loading v-if="isLoading" />
+      <app-error-message v-if="error" />
       <ul v-if="lessons" id="menu" class="text-sm mt-2 hidden md:block">
-        <li v-for="lesson in lessons" :key="lesson.id" class="flex justify-end">
-          <router-link :to="{name: 'lesson', params: {slug: lesson.id}}">
-            Урок {{ lesson.id }}
+        <li v-for="(lesson, id) in lessons" :key="id" class="flex justify-end">
+          <router-link :to="{name: `lesson${id + 1}`}">
+            Урок {{ id + 1 }}
           </router-link>
         </li>
       </ul>
@@ -40,37 +41,27 @@
 
 <script>
 import {mapState} from 'vuex'
+import AppLoading from '@/components/Loading'
+import AppErrorMessage from '@/components/ErrorMessage'
+
 export default {
-  name: 'Asidebar',
+  name: 'AppNavbar',
+
+  components: {
+    AppLoading,
+    AppErrorMessage
+  },
 
   computed: {
     ...mapState({
-      isLoading: state => state.course.isLoading,
-      error: state => state.course.error,
-      lessons: state => state.course.data
-    }),
-
-    currentLesson() {
-      return this.$route.params.slug || ''
-    }
-  },
-
-  watch: {
-    currentLesson() {
-      this.fetchLesson()
-    }
+      isLoading: state => state.lessons.isLoading,
+      error: state => state.lessons.error,
+      lessons: state => state.lessons.data
+    })
   },
 
   mounted() {
-    this.fetchLesson()
-  },
-
-  methods: {
-    fetchLesson() {
-      this.$store.dispatch('getLesson', {
-        slug: this.currentLesson
-      })
-    }
+    this.$store.dispatch('getLessons')
   }
 }
 </script>
