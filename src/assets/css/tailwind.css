@@ -4,8 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.active {
+  @apply bg-gray-100;
+}
+
 .card {
-  @apply bg-white rounded overflow-hidden shadow-md relative;
+  @apply bg-white rounded overflow-hidden shadow-sm relative;
 }
 
 .badge {
