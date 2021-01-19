@@ -26,12 +26,14 @@
         </div>
       </div>
 
-      <app-loading v-if="isLoading" />
-      <app-error-message v-if="error" />
-      <ul v-if="lessons" id="menu" class="text-sm mt-2 hidden md:block">
-        <li v-for="(lesson, id) in lessons" :key="id" class="flex justify-end">
-          <router-link :to="{name: `lesson${id + 1}`}">
-            Урок {{ id + 1 }}
+      <ul id="menu" class="text-sm mt-2 hidden md:block">
+        <li
+          v-for="lesson in lessonsCount"
+          :key="lesson"
+          class="flex justify-end"
+        >
+          <router-link :to="{name: `lesson${lesson}`}">
+            Урок {{ lesson }}
           </router-link>
         </li>
       </ul>
@@ -40,28 +42,21 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
-import AppLoading from '@/components/Loading'
-import AppErrorMessage from '@/components/ErrorMessage'
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
   name: 'AppNavbar',
 
-  components: {
-    AppLoading,
-    AppErrorMessage
-  },
-
   computed: {
-    ...mapState({
-      isLoading: state => state.lessons.isLoading,
-      error: state => state.lessons.error,
-      lessons: state => state.lessons.data
-    })
+    ...mapGetters(['lessonsCount'])
   },
 
-  mounted() {
-    this.$store.dispatch('getLessons')
+  methods: {
+    ...mapActions(['fetchLessons'])
+  },
+
+  async mounted() {
+    this.fetchLessons()
   }
 }
 </script>
