@@ -8,7 +8,7 @@
           </router-link>
         </h1>
 
-        <div class="px-4 cursor-pointer md:hidden" id="burger">
+        <div @click="toggleMenu" class="px-4 cursor-pointer md:hidden">
           <svg
             class="w-6 h-6"
             fill="none"
@@ -28,7 +28,7 @@
 
       <app-loading v-if="isLoading" />
       <app-error-message v-if="error" :message="error" />
-      <ul v-if="lessons" id="menu" class="text-sm hidden md:block">
+      <ul v-if="!isMenuVisible" class="text-sm md:block">
         <li
           v-for="lesson in lessons.length"
           :key="lesson"
@@ -55,6 +55,13 @@ import AppErrorMessage from '@/components/ErrorMessage'
 export default {
   name: 'AppNavbar',
 
+  data() {
+    return {
+      isMenuVisible: true,
+      mdWidth: 768
+    }
+  },
+
   components: {
     AppLoading,
     AppErrorMessage
@@ -68,12 +75,25 @@ export default {
     })
   },
 
+  created() {
+    this.handleView()
+    window.addEventListener('resize', this.handleView)
+  },
+
   mounted() {
     this.getCourse()
   },
 
   methods: {
-    ...mapActions(['getCourse'])
+    ...mapActions(['getCourse']),
+
+    toggleMenu() {
+      this.isMenuVisible = !this.isMenuVisible
+    },
+
+    handleView() {
+      this.isMenuVisible = window.innerWidth < this.mdWidth
+    }
   }
 }
 </script>

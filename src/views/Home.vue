@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import {mapState} from 'vuex'
 import AppLoading from '@/components/Loading'
 import AppErrorMessage from '@/components/ErrorMessage'
 
