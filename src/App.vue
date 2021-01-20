@@ -1,31 +1,30 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+  <div class="grid md:grid-cols-5 text-gray-600 font-base">
+    <!-- Start navbar -->
+    <app-navbar class="md:col-span-1 md:flex md:justify-end" />
+    <!-- End navbar -->
+
+    <main class="md:col-span-4 md:px-16 px-10 py-6 bg-gray-100 ">
+      <!-- Start header -->
+      <app-header />
+      <!-- End header -->
+
+      <!-- Start view -->
+      <router-view />
+      <!-- End view -->
+    </main>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
+<script>
+import AppNavbar from '@/components/Navbar'
+import AppHeader from '@/components/Header'
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+export default {
+  name: 'App',
+  components: {
+    AppNavbar,
+    AppHeader
+  }
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
