@@ -11,3 +11,35 @@
 .card {
   @apply bg-white rounded overflow-hidden shadow-sm relative;
 }
+
+.title {
+  @apply text-sm md:text-base font-bold;
+}
+
+.title-mark {
+  @apply text-gray-600 font-bold;
+}
+
+.info {
+  @apply text-sm md:text-base text-gray-400 font-normal;
+}
+
+.code {
+  @apply flex overflow-x-auto bg-white my-2 text-sm;
+}
+
+.slow {
+  @apply transition ease-out duration-200;
+}
+
+pre {
+  position: relative;
+}
+
+code::before {
+  content: attr(data-code);
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  @apply text-gray-300 font-semibold uppercase;
+}
