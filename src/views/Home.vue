@@ -1,19 +1,15 @@
 <template>
-  <div>
-    <h4 class="font-bold mt-5 pb-2 border-b">Список уроков</h4>
+  <div class="info">
+    <h4 class="mt-5 pb-2 title border-b">Список уроков</h4>
     <app-loading v-if="isLoading" />
     <app-error-message v-if="error" :message="error" />
     <div v-if="lessons" class="mt-4 grid lg:grid-cols-3 gap-5">
-      <div
-        v-for="lesson in lessons"
-        :key="lesson.id"
-        class="card hover:shadow-lg transition ease-out duration-500"
-      >
+      <div v-for="lesson in lessons" :key="lesson.id" class="card">
         <div class="m-4">
-          <router-link :to="{name: `lesson${lesson.id}`}" class="font-bold"
-            >Модуль #{{ lesson.id }}</router-link
-          >
-          <span class="block text-gray-500 text-sm">{{ lesson.title }}</span>
+          <router-link :to="{name: `lesson${lesson.id}`}" class="title">
+            Модуль #{{ lesson.id }}
+          </router-link>
+          <span class="block text-sm">{{ lesson.title }}</span>
         </div>
       </div>
     </div>

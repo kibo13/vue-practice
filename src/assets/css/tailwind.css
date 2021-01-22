@@ -9,14 +9,10 @@
 }
 
 .card {
-  @apply bg-white rounded overflow-hidden shadow-sm relative;
+  @apply bg-white rounded overflow-hidden shadow-sm hover:shadow-lg relative transition ease-out duration-500;
 }
 
 .title {
-  @apply text-sm md:text-base font-bold;
-}
-
-.title-mark {
   @apply text-gray-600 font-bold;
 }
 
@@ -25,15 +21,7 @@
 }
 
 .code {
-  @apply flex overflow-x-auto bg-white my-2 text-sm;
-}
-
-.slow {
-  @apply transition ease-out duration-200;
-}
-
-pre {
-  position: relative;
+  @apply flex overflow-x-auto bg-white my-2 text-sm rounded relative;
 }
 
 code::before {
@@ -42,4 +30,8 @@ code::before {
   top: 5px;
   right: 10px;
   @apply text-gray-300 font-semibold uppercase;
+}
+
+.slow {
+  @apply transition ease-out duration-500;
 }

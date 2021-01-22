@@ -1,9 +1,9 @@
 <template>
   <div>
-    <nav class="text-right w-full">
+    <nav class="w-full">
       <div class="flex justify-between items-center">
-        <h1 class="w-full md:text-right font-bold border-b border-gray-100">
-          <router-link :to="{name: 'home'}" class="block text-center p-4">
+        <h1 class="w-full text-center font-bold border-b border-gray-100">
+          <router-link :to="{name: 'home'}" class="block p-4">
             Практика по Vue.js
           </router-link>
         </h1>
@@ -32,7 +32,7 @@
         <li
           v-for="lesson in lessons.length"
           :key="lesson"
-          class="text-left border-b hover:bg-gray-100 transition ease-out duration-300"
+          class="border-b hover:bg-gray-100 slow"
         >
           <router-link
             :to="{name: `lesson${lesson}`}"

@@ -1,45 +1,42 @@
 <template>
-  <div class="">
-    <h4 class="mt-5 pb-2 title border-b">
-      <span>Модуль #{{ id }} / </span>
-      <app-loading v-if="isLoading" class="info" />
-      <app-error-message v-if="error" :message="error" class="info" />
-      <span class="info">
-        {{ getLesson.title }}
-      </span>
+  <div class="info">
+    <h4 class="mt-5 pb-2 border-b">
+      <span class="title">Модуль #{{ id }}&nbsp;/&nbsp;</span>
+      <app-loading v-if="isLoading" />
+      <app-error-message v-if="error" :message="error" />
+      <span>{{ getLesson.title }}</span>
     </h4>
     <div class="mt-2">
       <!-- Start task -->
       <div>
-        <span class="title">
-          Задание:
-        </span>
-        <span class="info">
-          необходимо реализовать обычную панель управления для выбора количества
-          продуктов, которая состоит из двух кнопок и поля (input). При помощи
-          кнопок увеличиваем (уменьшаем) количество товаров в input на 1. Поле
-          input принимает числа в диапазоне от 1 до 10.
-        </span>
+        <span class="title">Задание:&nbsp;</span>необходимо реализовать обычную
+        панель управления для выбора количества продуктов, которая состоит из
+        двух кнопок и поля (input). При помощи кнопок увеличиваем (уменьшаем)
+        количество товаров в input на 1. Поле input принимает числа в диапазоне
+        от 1 до 10.
       </div>
       <!-- END task -->
 
       <!-- Start detail -->
-      <div class="info mt-2">
-        <h4 class="title-mark">Решение:</h4>
+      <div class="mt-2">
+        <h4 class="title">Решение:</h4>
         <div>
           Сначала создадим разметку, в которую поместим следующие элементы:
           <pre class="code">
-      <code data-code="html">  
-      <span><</span>button>+<span></</span>button>
-      <span><</span>input type="number" />
-      <span><</span>button>-<span></</span>button>
+      <code :data-code=code.html>  
+      &lt;button&gt;+&lt;/button&gt;
+      &lt;input type="number" />
+      &lt;button&gt;-&lt;/button&gt;
       </code>
           </pre>
         </div>
         <div>
-          Далее объявим в data переменные: counter для подсчета количества продуктов, minValue и maxValue для задания диапазона чисел от 1 до 10. При помощи директивы <span class="title-mark">v-bind</span> привяжем переменные к полю input.
+          Далее объявим в data переменные: counter для подсчета количества
+          продуктов, minValue и maxValue для задания диапазона чисел от 1 до 10.
+          При помощи директивы <span class="title">v-bind</span> привяжем
+          переменные к полю input.
           <pre class="code">
-      <code data-code="js">  
+      <code :data-code=code.js>  
       data() {
         return {
           counter: '',
@@ -50,33 +47,35 @@
       </code>
           </pre>
           <pre class="code">
-      <code data-code="html">  
-      <span><</span>button>+<span></</span>button>
-      <span><</span>input 
+      <code :data-code=code.html>  
+      &lt;button&gt;+&lt;/button&gt;
+      &lt;input
         type="number" 
-        <span class="title-mark">v-bind:</span>min="minValue" 
-        <span class="title-mark">v-bind:</span>max="maxValue" 
-        <span class="title-mark">v-bind:</span>value="counter" 
+        <span class="title">v-bind:</span>min="minValue" 
+        <span class="title">v-bind:</span>max="maxValue" 
+        <span class="title">v-bind:</span>value="counter" 
       />
-      <span><</span>button>-<span></</span>button>
+      &lt;button&gt;-&lt;/button&gt;
       </code>
           </pre>
         </div>
         <div>
-          Затем в <span class="title-mark">methods</span> создадим функции:  increaseCounter и decreaseCounter.
-          Методы сначала проверяют вхождение текущего количества продуктов 
-          в выше указанный диапазон (от 1 до 10), а после увеличивают (уменьшают) количество продуктов на 1. При помощи директивы <span class="title-mark">v-on</span> привяжем функции к кнопкам.
+          Затем в <span class="title">methods</span> создадим функции:
+          increaseCounter и decreaseCounter. Методы сначала проверяют вхождение
+          текущего количества продуктов в выше указанный диапазон (от 1 до 10),
+          а после увеличивают (уменьшают) количество продуктов на 1. При помощи
+          директивы <span class="title">v-on</span> привяжем функции к кнопкам.
           <pre class="code">
-      <code data-code="js">  
-      <span class="title-mark">methods</span>: {
+      <code :data-code=code.js>  
+      <span class="title">methods</span>: {
         increaseCounter() {
-          if (this.counter < this.maxValue) {
+          if (this.counter &lt; this.maxValue) {
             this.counter++
           }
         },
 
         decreaseCounter() {
-          if (this.counter > this.minValue) {
+          if (this.counter &gt; this.minValue) {
             this.counter--
           }
         }
@@ -84,15 +83,15 @@
       </code>
           </pre>
           <pre class="code">
-      <code data-code="html">  
-      <span><</span>button <span class="title-mark">v-on:</span>click="increaseCounter">+<span></</span>button>
-      <span><</span>input 
+      <code :data-code=code.html>  
+      &lt;button <span class="title">v-on:</span>click="increaseCounter"&gt;+&lt;/button&gt;
+      &lt;input
         type="number" 
         v-bind:min="minValue" 
         v-bind:max="maxValue" 
         v-bind:value="counter" 
       />
-      <span><</span>button <span class="title-mark">v-on:</span>click="decreaseCounter">-<span></</span>button>
+      &lt;button <span class="title">v-on:</span>click="decreaseCounter"&gt;-&lt;/button&gt;
       </code>
           </pre>
         </div>
@@ -101,13 +100,13 @@
 
       <!-- Start result -->
       <div class="mt-4">
-        <h4 class="title-mark">Результат:</h4>
-        <h4 class="mb-1 text-sm md:text-base">
+        <h4 class="title">Результат:</h4>
+        <h4 class="mb-1">
           Выберите количество продуктов:
         </h4>
         <button
           @click="increaseCounter"
-          class="w-7 h-7 text-gray-400 border-2 border-gray-400 rounded rounded-r-none font-bold hover:bg-gray-400 hover:text-white slow"
+          class="w-7 border hover:shadow-inner slow"
         >
           +
         </button>
@@ -116,12 +115,12 @@
           :min="minValue"
           :max="maxValue"
           :value="counter"
+          class="mx-1 border"
           readonly
-          class="border-t-2 border-b-2 border-gray-400"
         />
         <button
           @click="decreaseCounter"
-          class="w-7 h-7 text-gray-400 border-2 border-gray-400 rounded rounded-l-none font-bold hover:bg-gray-400 hover:text-white slow"
+          class="w-7 border hover:shadow-inner slow"
         >
           -
         </button>
@@ -146,6 +145,7 @@ export default {
   data() {
     return {
       id: 1,
+      code: {html: 'html', js: 'js'},
       counter: '',
       minValue: 1,
       maxValue: 10
