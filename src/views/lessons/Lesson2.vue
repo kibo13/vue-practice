@@ -22,16 +22,9 @@
           Создадим в data следующие переменные: list - простой массив, который
           будет содержать несколько произвольных имен и search - пустая строка,
           которая будет получать данные, вводимые через input.
-          <pre class="code">
-      <code :data-code=code.js>  
-      data() {
-        return {
-          list: ['Артём', 'Алина', 'Евгений', 'Александр', 'Анна'],
-          search: ''
-        }
-      }
-      </code>
-          </pre>
+          <pre
+            class="code-wrapper "
+          ><code :data-code=code.js class="code"><span class="block">data() {</span><span class="block">  return {</span><span class="block">    list: ['Артём', 'Алина', 'Евгений', 'Александр', 'Анна'],  </span><span class="block">    search: ''</span><span class="block">  }</span><span class="block">}</span></code></pre>
         </div>
         <div>
           Далее в свойстве <span class="title">computed</span> создадим метод
@@ -40,23 +33,9 @@
           и возвращает новый массив элементов, которые соответствуют результату
           поиска. Чтобы поиск не реагировал на регистр используем метод
           toLowerCase.
-          <pre class="code">
-      <code :data-code=code.js>  
-      <span class="title">computed</span>: {
-        getPersonByName() {
-          const search = this.search.toLowerCase()
-          let list = this.list
-          let persons = []
-
-          list.forEach(person => {
-            if (person.toLowerCase().indexOf(search) != -1) persons.push(person)
-          })
-
-          return persons
-        }
-      }
-      </code>
-          </pre>
+          <pre
+            class="code-wrapper"
+          ><code :data-code=code.js class="code"><span class="block title">computed: {</span><span class="block">  getPersonByName() {</span><span class="block">    const search = this.search.toLowerCase()</span><span class="block">    let list = this.list</span><span class="block">    let persons = []</span><br /><span class="block">    list.forEach(person => {</span><span class="block">     if (person.toLowerCase().indexOf(search) != -1) persons.push(person)  </span><span class="block">    })</span><br /><span class="block">    return persons</span><span class="block">  }</span><span class="block">}</span></code></pre>
         </div>
         <div>
           Теперь создадим разметку, добавим поле input и список ul для поиска и
@@ -66,22 +45,9 @@
           переменной search можно менять как в коде программы, так и через поле
           input. Список имен выводим, используя директиву
           <span class="title">v-for</span>.
-          <pre class="code">
-      <code :data-code=code.html>  
-      &lt;div&gt;
-        &lt;input
-          type="text" 
-          <span class="title">v-model</span>="search" 
-          placeholder="Поиск..."
-        />
-      &lt;/div&gt;
-      &lt;ul&gt;
-        &lt;li <span class="title">v-for</span>="(person, i) in getPersonByName" :key="i" class="p-1"&gt;
-          <span>{</span><span>{</span> person <span>}</span><span>}</span>    
-        &lt;/li&gt;
-      &lt;/ul&gt;
-      </code>
-          </pre>
+          <pre
+            class="code-wrapper"
+          ><code :data-code=code.html class="code"><span class="block">&lt;div&gt;</span><span class="block">  &lt;input</span><span class="block">    type="text"</span><span class="block">    <span class="title">v-model</span>="search" </span><span class="block">    placeholder="Поиск..."</span><span class="block">  /></span><span class="block">&lt;/div&gt;</span><span class="block">&lt;ul&gt;</span><span class="block">  &lt;li <span class="title">v-for</span>="(person, i) in getPersonByName" :key="i" class="p-1"&gt;  </span><span class="block">    {<span>{</span> person <span>}</span>}</span><span class="block">  &lt;/li&gt;</span><span class="block">&lt;/ul&gt;</span></code></pre>
         </div>
       </div>
       <!-- End detail -->

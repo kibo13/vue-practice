@@ -20,11 +20,15 @@
   @apply text-sm md:text-base text-gray-400 font-normal;
 }
 
-.code {
-  @apply flex overflow-x-auto bg-white my-2 text-sm rounded relative;
+.code-wrapper {
+  @apply my-2 relative text-xs md:text-sm bg-white rounded;
 }
 
-code::before {
+.code {
+  @apply p-4 block overflow-x-auto;
+}
+
+.code::before {
   content: attr(data-code);
   position: absolute;
   top: 5px;

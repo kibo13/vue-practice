@@ -22,42 +22,21 @@
         <h4 class="title">Решение:</h4>
         <div>
           Сначала создадим разметку, в которую поместим следующие элементы:
-          <pre class="code">
-      <code :data-code=code.html>  
-      &lt;button&gt;+&lt;/button&gt;
-      &lt;input type="number" />
-      &lt;button&gt;-&lt;/button&gt;
-      </code>
-          </pre>
+          <pre
+            class="code-wrapper"
+          ><code :data-code=code.html class="code"><span class="block">&lt;button&gt;+&lt;/button&gt;</span><span class="block">&lt;input type="number" /></span><span class="block">&lt;button&gt;-&lt;/button&gt;</span></code></pre>
         </div>
         <div>
           Далее объявим в data переменные: counter для подсчета количества
           продуктов, minValue и maxValue для задания диапазона чисел от 1 до 10.
           При помощи директивы <span class="title">v-bind</span> привяжем
           переменные к полю input.
-          <pre class="code">
-      <code :data-code=code.js>  
-      data() {
-        return {
-          counter: '',
-          minValue: 1,
-          maxValue: 10
-        }
-      }
-      </code>
-          </pre>
-          <pre class="code">
-      <code :data-code=code.html>  
-      &lt;button&gt;+&lt;/button&gt;
-      &lt;input
-        type="number" 
-        <span class="title">v-bind:</span>min="minValue" 
-        <span class="title">v-bind:</span>max="maxValue" 
-        <span class="title">v-bind:</span>value="counter" 
-      />
-      &lt;button&gt;-&lt;/button&gt;
-      </code>
-          </pre>
+          <pre
+            class="code-wrapper"
+          ><code :data-code=code.js class="code"><span class="block">data() {</span><span class="block">  return {</span><span class="block">    counter: '',</span><span class="block">    minValue: 1,</span><span class="block">    maxValue: 10</span><span class="block">  }</span><span class="block">}</span></code></pre>
+          <pre
+            class="code-wrapper"
+          ><code :data-code=code.html class="code"><span class="block">&lt;button&gt;+&lt;/button&gt;</span><span class="block">&lt;input type="number"</span><span class="block">  <span class="title">v-bind:</span>min="minValue"</span><span class="block">  <span class="title">v-bind:</span>max="maxValue"</span><span class="block">  <span class="title">v-bind:</span>value="counter"</span><span class="block">/&gt;</span><span class="block">&lt;button&gt;-&lt;/button&gt;</span></code></pre>
         </div>
         <div>
           Затем в <span class="title">methods</span> создадим функции:
@@ -65,35 +44,12 @@
           текущего количества продуктов в выше указанный диапазон (от 1 до 10),
           а после увеличивают (уменьшают) количество продуктов на 1. При помощи
           директивы <span class="title">v-on</span> привяжем функции к кнопкам.
-          <pre class="code">
-      <code :data-code=code.js>  
-      <span class="title">methods</span>: {
-        increaseCounter() {
-          if (this.counter &lt; this.maxValue) {
-            this.counter++
-          }
-        },
-
-        decreaseCounter() {
-          if (this.counter &gt; this.minValue) {
-            this.counter--
-          }
-        }
-      }
-      </code>
-          </pre>
-          <pre class="code">
-      <code :data-code=code.html>  
-      &lt;button <span class="title">v-on:</span>click="increaseCounter"&gt;+&lt;/button&gt;
-      &lt;input
-        type="number" 
-        v-bind:min="minValue" 
-        v-bind:max="maxValue" 
-        v-bind:value="counter" 
-      />
-      &lt;button <span class="title">v-on:</span>click="decreaseCounter"&gt;-&lt;/button&gt;
-      </code>
-          </pre>
+          <pre
+            class="code-wrapper"
+          ><code :data-code=code.js class="code"><span class="block"><span class="title">methods</span>: {</span><span class="block">  increaseCounter() {</span><span class="block">    if (this.counter &lt; this.maxValue) {  </span><span class="block">      this.counter++</span><span class="block">    }</span><span class="block">  }</span><br /><span class="block">  decreaseCounter() {</span><span class="block">    if (this.counter &gt; this.minValue) {  </span><span class="block">      this.counter--</span><span class="block">    }</span><span class="block">  }</span><span class="block">}</span></code></pre>
+          <pre
+            class="code-wrapper"
+          ><code :data-code=code.html class="code"><span class="block">&lt;button <span class="title">v-on:</span>click="increaseCounter"&gt;+&lt;/button&gt;  </span><span class="block">&lt;input type="number"</span><span class="block">  <span class="title">v-bind:</span>min="minValue"</span><span class="block">  <span class="title">v-bind:</span>max="maxValue"</span><span class="block">  <span class="title">v-bind:</span>value="counter"</span><span class="block">/&gt;</span><span class="block">&lt;button <span class="title">v-on:</span>click="decreaseCounter"&gt;-&lt;/button&gt;  </span></code></pre>
         </div>
       </div>
       <!-- End detail -->
