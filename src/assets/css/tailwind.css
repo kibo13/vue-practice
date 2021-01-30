@@ -8,8 +8,16 @@
   @apply bg-gray-100;
 }
 
+.btn-primary {
+  @apply my-2 px-4 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded;
+}
+
 .card {
   @apply bg-white rounded overflow-hidden shadow-sm hover:shadow-lg relative transition ease-out duration-500;
+}
+
+.lighting {
+  @apply p-1 bg-white text-xs md:text-sm font-mono rounded;
 }
 
 .title {
