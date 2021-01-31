@@ -8,15 +8,31 @@
     </h4>
     <div class="mt-2">
       <!-- Start task -->
-      <div>
-        <span class="title">Задание:&nbsp;</span>необходимо вывести список
-        товаров и реализовать поиск по ним. Решить задачу с использованием
-        props, emit и v-model.
+      <div class="mb-2">
+        <span class="title">Задание:&nbsp;</span>реализовать вывод списка имен и
+        соответствующий поиск по ним. Выполнить задание с использованием props,
+        emit и v-model.
       </div>
       <!-- END task -->
 
+      <!-- Start result -->
+      <div class="mb-2">
+        <app-search @search="searchProducts" />
+        <ul class="mt-2 grid md:grid-cols-3 gap-5">
+          <li v-for="(product, i) in filteredProducts" :key="i">
+            <app-product-card
+              :title="product.title"
+              :price="product.price"
+              :img-url="product.imgUrl"
+              :count="product.count"
+            />
+          </li>
+        </ul>
+      </div>
+      <!-- End result -->
+
       <!-- Start detail -->
-      <div class="mt-2">
+      <div>
         <h4 class="title">Решение:</h4>
         <div>
           Создадим в data два массива products и filteredProducts. Массив
@@ -86,23 +102,6 @@
         </div>
       </div>
       <!-- End detail -->
-
-      <!-- Start result -->
-      <div class="mt-4">
-        <h4 class="title">Результат:</h4>
-        <app-search @search="searchProducts" />
-        <ul class="mt-2 grid md:grid-cols-3 gap-5">
-          <li v-for="(product, i) in filteredProducts" :key="i">
-            <app-product-card
-              :title="product.title"
-              :price="product.price"
-              :img-url="product.imgUrl"
-              :count="product.count"
-            />
-          </li>
-        </ul>
-      </div>
-      <!-- End result -->
     </div>
   </div>
 </template>

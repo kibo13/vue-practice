@@ -8,7 +8,7 @@
     </h4>
     <div class="mt-2">
       <!-- Start task -->
-      <div>
+      <div class="mb-2">
         <span class="title">Задание:&nbsp;</span>имеется картинка, к которой
         необходимо применить различные css классы и стили (фильтры, изменение
         размеров картинки, поворот картинки на определенный угол от 0&deg; до
@@ -18,8 +18,104 @@
       </div>
       <!-- END task -->
 
+      <!-- Start result -->
+      <div class="mb-2">
+        <div class="grid md:grid-cols-2">
+          <div class="flex bg-white">
+            <img
+              v-if="isVisible"
+              src="@/assets/images/lesson_03/idea.jpg"
+              alt="Тут должна быть картинка"
+              class="w-full object-cover"
+              :class="imgFilters"
+              :style="[getSizes, getDegree]"
+            />
+            <p v-else class="w-full flex items-center justify-center">
+              Тут могла быть Ваша реклама :)
+            </p>
+          </div>
+          <div class="flex flex-col px-0 pt-2 md:pt-0 md:px-4">
+            <div class="mb-1 grid grid-cols-3 gap-1.5">
+              <button
+                :class="imgFilters.contrast ? 'active' : ''"
+                @click="imgFilters.contrast = !imgFilters.contrast"
+                class="btn"
+              >
+                Контраст
+              </button>
+              <button
+                :class="imgFilters.blur ? 'active' : ''"
+                @click="imgFilters.blur = !imgFilters.blur"
+                class="btn"
+              >
+                Размытие
+              </button>
+              <button
+                :class="imgFilters.shadow ? 'active' : ''"
+                @click="imgFilters.shadow = !imgFilters.shadow"
+                class="btn"
+              >
+                Тень
+              </button>
+            </div>
+            <div>
+              <h5 class="title">Размер</h5>
+              <div>
+                <label for="width" class="block text-xs">
+                  Ширина: {{ imgSizes.currentWidth }}px
+                </label>
+                <input
+                  type="range"
+                  id="width"
+                  :min="imgSizes.minWidth"
+                  :max="imgSizes.maxWidth"
+                  :value="imgSizes.currentWidth"
+                  @input="imgSizes.currentWidth = $event.target.value"
+                  class="w-full"
+                />
+              </div>
+              <div>
+                <label for="height" class="block text-xs">
+                  Высота: {{ imgSizes.currentHeight }}px
+                </label>
+                <input
+                  type="range"
+                  id="height"
+                  :min="imgSizes.minHeight"
+                  :max="imgSizes.maxHeight"
+                  :value="imgSizes.currentHeight"
+                  @input="imgSizes.currentHeight = $event.target.value"
+                  class="w-full"
+                />
+              </div>
+            </div>
+            <div>
+              <h5 class="title">Поворот</h5>
+              <div>
+                <label for="angle" class="block text-xs">
+                  Угол: {{ imgRotate.currentDeg }}&deg;
+                </label>
+                <input
+                  type="range"
+                  id="angle"
+                  :min="imgRotate.minDeg"
+                  :max="imgRotate.maxDeg"
+                  :value="imgRotate.currentDeg"
+                  @input="imgRotate.currentDeg = $event.target.value"
+                  class="w-full"
+                />
+              </div>
+            </div>
+            <button @click="isVisible = !isVisible" class="w-24 btn">
+              {{ getBtnText }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- End result -->
+
       <!-- Start detail -->
-      <div class="mt-2">
+      <div>
         <h4 class="title">Решение:</h4>
         <div>
           Объявим в data все необходимые переменные: isVisible - состояние
@@ -56,103 +152,6 @@
         </div>
       </div>
       <!-- End detail -->
-
-      <!-- Start result -->
-      <div class="mt-4">
-        <h4 class="title">Результат:</h4>
-        <div class="grid md:grid-cols-2">
-          <div class="flex bg-white">
-            <img
-              v-if="isVisible"
-              src="@/assets/images/lesson_03/idea.jpg"
-              alt="Тут должна быть картинка"
-              class="w-full object-cover"
-              :class="imgFilters"
-              :style="[getSizes, getDegree]"
-            />
-            <p v-else class="w-full flex items-center justify-center">
-              Тут могла быть Ваша реклама :)
-            </p>
-          </div>
-          <div class="flex flex-col px-0 pt-2 md:pt-0 md:px-4">
-            <div class="mb-2 grid grid-cols-3 gap-1.5">
-              <button
-                :class="imgFilters.contrast ? 'active' : ''"
-                @click="imgFilters.contrast = !imgFilters.contrast"
-                class="btn"
-              >
-                Контраст
-              </button>
-              <button
-                :class="imgFilters.blur ? 'active' : ''"
-                @click="imgFilters.blur = !imgFilters.blur"
-                class="btn"
-              >
-                Размытие
-              </button>
-              <button
-                :class="imgFilters.shadow ? 'active' : ''"
-                @click="imgFilters.shadow = !imgFilters.shadow"
-                class="btn"
-              >
-                Тень
-              </button>
-            </div>
-            <div class="mb-2">
-              <h5 class="title">Размер</h5>
-              <div>
-                <label for="width" class="block text-xs">
-                  Ширина: {{ imgSizes.currentWidth }}px
-                </label>
-                <input
-                  type="range"
-                  id="width"
-                  :min="imgSizes.minWidth"
-                  :max="imgSizes.maxWidth"
-                  :value="imgSizes.currentWidth"
-                  @input="imgSizes.currentWidth = $event.target.value"
-                  class="w-full"
-                />
-              </div>
-              <div>
-                <label for="height" class="block text-xs">
-                  Высота: {{ imgSizes.currentHeight }}px
-                </label>
-                <input
-                  type="range"
-                  id="height"
-                  :min="imgSizes.minHeight"
-                  :max="imgSizes.maxHeight"
-                  :value="imgSizes.currentHeight"
-                  @input="imgSizes.currentHeight = $event.target.value"
-                  class="w-full"
-                />
-              </div>
-            </div>
-            <div class="mb-2">
-              <h5 class="title">Поворот</h5>
-              <div>
-                <label for="angle" class="block text-xs">
-                  Угол: {{ imgRotate.currentDeg }}&deg;
-                </label>
-                <input
-                  type="range"
-                  id="angle"
-                  :min="imgRotate.minDeg"
-                  :max="imgRotate.maxDeg"
-                  :value="imgRotate.currentDeg"
-                  @input="imgRotate.currentDeg = $event.target.value"
-                  class="w-full"
-                />
-              </div>
-            </div>
-            <button @click="isVisible = !isVisible" class="w-24 btn">
-              {{ getBtnText }}
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- End result -->
     </div>
   </div>
 </template>

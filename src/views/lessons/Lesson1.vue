@@ -8,17 +8,42 @@
     </h4>
     <div class="mt-2">
       <!-- Start task -->
-      <div>
-        <span class="title">Задание:&nbsp;</span>необходимо реализовать обычную
-        панель управления для выбора количества продуктов, которая состоит из
-        двух кнопок и поля (input). При помощи кнопок увеличиваем (уменьшаем)
+      <div class="mb-2">
+        <span class="title">Задание:&nbsp;</span>реализовать простую панель
+        управления для выбора количества продуктов, которая состоит из двух
+        кнопок и поля (input). При помощи кнопок увеличиваем (уменьшаем)
         количество товаров в input на 1. Поле input принимает числа в диапазоне
         от 1 до 10.
       </div>
       <!-- END task -->
 
+      <!-- Start result -->
+      <div class="mb-2">
+        <button
+          @click="increaseCounter"
+          class="w-7 border hover:shadow-inner slow"
+        >
+          +
+        </button>
+        <input
+          type="number"
+          :min="minValue"
+          :max="maxValue"
+          :value="counter"
+          class="mx-1 border"
+          readonly
+        />
+        <button
+          @click="decreaseCounter"
+          class="w-7 border hover:shadow-inner slow"
+        >
+          -
+        </button>
+      </div>
+      <!-- End result -->
+
       <!-- Start detail -->
-      <div class="mt-2">
+      <div>
         <h4 class="title">Решение:</h4>
         <div>
           Сначала создадим разметку, в которую поместим следующие элементы:
@@ -53,35 +78,6 @@
         </div>
       </div>
       <!-- End detail -->
-
-      <!-- Start result -->
-      <div class="mt-4">
-        <h4 class="title">Результат:</h4>
-        <h4 class="mb-1">
-          Выберите количество продуктов:
-        </h4>
-        <button
-          @click="increaseCounter"
-          class="w-7 border hover:shadow-inner slow"
-        >
-          +
-        </button>
-        <input
-          type="number"
-          :min="minValue"
-          :max="maxValue"
-          :value="counter"
-          class="mx-1 border"
-          readonly
-        />
-        <button
-          @click="decreaseCounter"
-          class="w-7 border hover:shadow-inner slow"
-        >
-          -
-        </button>
-      </div>
-      <!-- End result -->
     </div>
   </div>
 </template>

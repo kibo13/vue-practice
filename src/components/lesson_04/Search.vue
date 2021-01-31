@@ -2,7 +2,7 @@
   <div class="flex justify-between">
     <input
       type="text"
-      class="my-2 mr-2 px-2 py-1 w-full shadow-sm rounded"
+      class="my-2 mr-2 input w-full"
       v-model="searchText"
       placeholder="Поиск..."
     />

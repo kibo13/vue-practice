@@ -8,15 +8,32 @@
     </h4>
     <div class="mt-2">
       <!-- Start task -->
-      <div>
-        <span class="title">Задание:&nbsp;</span>необходимо реализовать вывод
-        списка имен и соответствующий поиск по ним. Поиск не должен реагировать
-        на регистр.
+      <div class="mb-2">
+        <span class="title">Задание:&nbsp;</span>реализовать вывод списка имен и
+        соответствующий поиск по ним. Поиск не должен реагировать на регистр.
       </div>
       <!-- END task -->
 
+      <!-- Start result -->
+      <div class="mb-2">
+        <div>
+          <input
+            type="text"
+            @input="searchText = $event.target.value"
+            class="input w-full md:w-auto"
+            placeholder="Поиск..."
+          />
+        </div>
+        <ul>
+          <li v-for="(name, i) in getFilteredNames" :key="i" class="px-1 pt-1">
+            {{ name }}
+          </li>
+        </ul>
+      </div>
+      <!-- End result -->
+
       <!-- Start detail -->
-      <div class="mt-2">
+      <div>
         <h4 class="title">Решение:</h4>
         <div>
           Создадим в data следующие переменные: names - простой массив, который
@@ -47,25 +64,6 @@
         </div>
       </div>
       <!-- End detail -->
-
-      <!-- Start result -->
-      <div class="mt-4">
-        <h4 class="title">Результат:</h4>
-        <div class="my-2">
-          <input
-            type="text"
-            @input="searchText = $event.target.value"
-            class="px-2 py-1 rounded border"
-            placeholder="Поиск..."
-          />
-        </div>
-        <ul>
-          <li v-for="(name, i) in getFilteredNames" :key="i" class="p-1">
-            {{ name }}
-          </li>
-        </ul>
-      </div>
-      <!-- End result -->
     </div>
   </div>
 </template>

@@ -16,6 +16,10 @@
   @apply bg-white rounded overflow-hidden shadow-sm hover:shadow-lg relative transition ease-out duration-500;
 }
 
+.input {
+  @apply px-2 py-1 rounded shadow-sm;
+}
+
 .lighting {
   @apply p-1 bg-white text-xs md:text-sm font-mono rounded;
 }
