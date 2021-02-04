@@ -23,7 +23,7 @@
         <div class="grid md:grid-cols-2 gap-2">
           <div
             class="form-l5 mt-2 px-4 py-3 border rounded relative"
-            data-tip="General information"
+            data-tip="Общие сведения"
           >
             <div
               v-for="(fieldValue, fieldKey) in formFields"
@@ -38,14 +38,13 @@
                 :id="fieldKey"
                 class="input"
                 v-model="formFields[fieldKey]"
-                :placeholder="fieldKey"
                 autocomplete="off"
               />
             </div>
           </div>
           <div
             class="form-l5 mt-2 px-4 py-3 border rounded relative"
-            data-tip="Preview"
+            data-tip="Предпросмотр"
           >
             <ul class="flex flex-col px-2 py-1 h-full bg-white rounded">
               <li
@@ -60,17 +59,21 @@
           </div>
           <div
             class="form-l5 md:col-span-2 mt-2 px-4 py-3 border rounded relative"
-            data-tip="Additional window"
+            data-tip="Дополнительное окно"
           >
-            <div class="grid grid-cols-3 gap-2">
+            <div class="grid grid-cols-4 gap-2">
               <input
                 type="text"
-                class="input my-2 col-start-1 col-end-3"
+                class="input my-2 col-start-1 col-end-3 md:col-end-4"
                 v-model="additionalField"
-                placeholder="New value"
                 autocomplete="off"
               />
-              <button @click="addNewField" class="btn-primary">Add</button>
+              <button
+                @click="addNewField"
+                class="btn-primary col-start-3 md:col-start-4 col-end-5"
+              >
+                Добавить
+              </button>
             </div>
           </div>
         </div>
@@ -86,7 +89,7 @@
           дополнительного поля, которое будет добавляться в объект formFields.
           <pre
             class="code-wrapper"
-          ><code :data-code=code.js class="code"><span class="block">data() {</span><span class="block">  return {</span><span class="block">    formFields: {</span><span class="block">      name: '',</span><span class="block">      email: '',</span><span class="block">      phone: ''</span><span class="block">    },</span><span class="block">    additionalField: ''</span><span class="block">  }</span><span class="block">}</span></code></pre>
+          ><code :data-code=code.js class="code"><span class="block">data() {</span><span class="block">  return {</span><span class="block">    formFields: {</span><span class="block">      firstName: '',</span><span class="block">      lastName: '',</span><span class="block">      secondName: ''</span><span class="block">    },</span><span class="block">    additionalField: ''</span><span class="block">  }</span><span class="block">}</span></code></pre>
         </div>
         <div>
           Далее создадим разметку, которая будет состоять из трех блоков. Первый
@@ -104,7 +107,7 @@
           укажем метод addNewField.
           <pre
             class="code-wrapper"
-          ><code :data-code=code.html class="code"><span class="block italic title">// Первый блок</span><span class="block">&lt;div data-tip="General information"&gt;</span><span class="block">  &lt;div</span><span class="block">    v-for="(fieldValue, fieldKey) in formFields"</span><span class="block">    :key="fieldKey"</span><span class="block">  &gt;</span><span class="block">    &lt;label :for="fieldKey"&gt;</span><span class="block">      {<span>{</span> fieldKey }}</span><span class="block">    &lt;/label&gt;</span><span class="block">    &lt;input</span><span class="block">      type="text"</span><span class="block">      :id="fieldKey"</span><span class="block">      v-model="formFields[fieldKey]"</span><span class="block">      :placeholder="fieldKey"</span><span class="block">    /&gt;</span><span class="block">  &lt;/div&gt;</span><span class="block">&lt;/div&gt;</span><br /><span class="block italic title">// Второй блок</span><span class="block">&lt;div data-tip="Preview"&gt;</span><span class="block">  &lt;ul</span><span class="block">    &lt;li</span><span class="block">      v-for="(fieldValue, fieldKey) in formFields"  </span><span class="block">      :key="fieldKey"</span><span class="block">    &gt;</span><span class="block">      {<span>{</span> fieldKey }}: {<span>{</span> fieldValue }}</span><span class="block">    &lt;/li&gt;</span><span class="block">  &lt;/ul&gt;</span><span class="block">&lt;/div&gt;</span><br /><span class="block italic title">// Третий блок</span><span class="block">&lt;div data-tip="Additional window"&gt;</span><span class="block">  &lt;div</span><span class="block">    &lt;input</span><span class="block">      type="text"</span><span class="block">      v-model="additionalField"</span><span class="block">      placeholder="New value"</span><span class="block">    /&gt;</span><span class="block">    &lt;button @click="addNewField"&gt;Add&lt;/button&gt;</span><span class="block">  &lt;/div&gt;</span><span class="block">&lt;/div&gt;</span></code></pre>
+          ><code :data-code=code.html class="code"><span class="block italic title">&lt;!-- Первый блок --&gt;</span><span class="block">&lt;div data-tip="Общие сведения"&gt;</span><span class="block">  &lt;div</span><span class="block">    v-for="(fieldValue, fieldKey) in formFields"</span><span class="block">    :key="fieldKey"</span><span class="block">  &gt;</span><span class="block">    &lt;label :for="fieldKey"&gt;</span><span class="block">      {<span>{</span> fieldKey }}</span><span class="block">    &lt;/label&gt;</span><span class="block">    &lt;input</span><span class="block">      type="text"</span><span class="block">      :id="fieldKey"</span><span class="block">      v-model="formFields[fieldKey]"</span><span class="block">    /&gt;</span><span class="block">  &lt;/div&gt;</span><span class="block">&lt;/div&gt;</span><br /><span class="block italic title">&lt;!-- Второй блок --&gt;</span><span class="block">&lt;div data-tip="Предпросмотр"&gt;</span><span class="block">  &lt;ul</span><span class="block">    &lt;li</span><span class="block">      v-for="(fieldValue, fieldKey) in formFields"  </span><span class="block">      :key="fieldKey"</span><span class="block">    &gt;</span><span class="block">      {<span>{</span> fieldKey }}: {<span>{</span> fieldValue }}</span><span class="block">    &lt;/li&gt;</span><span class="block">  &lt;/ul&gt;</span><span class="block">&lt;/div&gt;</span><br /><span class="block italic title">&lt;!-- Третий блок --&gt;</span><span class="block">&lt;div data-tip="Дополнительное окно"&gt;</span><span class="block">  &lt;div</span><span class="block">    &lt;input type="text" v-model="additionalField"/&gt;</span><span class="block">    &lt;button @click="addNewField"&gt;Добавить&lt;/button&gt;</span><span class="block">  &lt;/div&gt;</span><span class="block">&lt;/div&gt;</span></code></pre>
         </div>
         <div>
           В methods создадим функцию addNewField, которая будет добавлять новый
@@ -130,7 +133,7 @@
           хотим добавить(изменить) и третий - значение, которое хотим установить
           данному свойству. Перепишем код метода addNewField, используя функцию
           <span class="title">$set</span>. Теперь новое свойство реактивно
-          добавляется на страницу и оно полностью реактивно, то есть
+          добавляется на страницу, то есть
           <span class="title">реактивность</span> это когда пользователь
           выполняет манипуляций с данными, переменные в data, computed, watch
           меняются и шаблоны, которые используют эти переменные обновляются.
@@ -161,9 +164,9 @@ export default {
       id: 5,
       code: {html: 'html', js: 'js'},
       formFields: {
-        name: '',
-        email: '',
-        phone: ''
+        firstName: '',
+        lastName: '',
+        secondName: ''
       },
       additionalField: ''
     }

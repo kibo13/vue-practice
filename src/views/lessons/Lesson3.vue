@@ -131,7 +131,7 @@
           Опишем стили для фильтров объекта imgFilters.
           <pre
             class="code-wrapper "
-          ><code :data-code=code.css class="code"><span class="block italic">// фильтр "Контраст"</span><span class="block">.contrast {</span><span class="block">  filter: contrast(200%);</span><span class="block">}</span><br /><span class="block italic">// фильтр "Размытие"</span><span class="block">.blur {</span><span class="block">  filter: blur(5px);</span><span class="block">}</span><br /><span class="block italic">// фильтр "Тень"</span><span class="block">.shadow {</span><span class="block">  filter: drop-shadow(16px 16px 10px black);  </span><span class="block">}</span></code></pre>
+          ><code :data-code=code.css class="code"><span class="block italic">/* фильтр "Контраст" */</span><span class="block">.contrast {</span><span class="block">  filter: contrast(200%);</span><span class="block">}</span><br /><span class="block italic">/* фильтр "Размытие" */</span><span class="block">.blur {</span><span class="block">  filter: blur(5px);</span><span class="block">}</span><br /><span class="block italic">/* фильтр "Тень" */</span><span class="block">.shadow {</span><span class="block">  filter: drop-shadow(16px 16px 10px black);  </span><span class="block">}</span></code></pre>
         </div>
         <div>
           В свойстве computed создадим три метода: getSizes, getDegree и

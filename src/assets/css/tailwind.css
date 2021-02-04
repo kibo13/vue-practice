@@ -20,6 +20,14 @@
   @apply px-2 py-1 rounded shadow-sm;
 }
 
+.is-invalid {
+  @apply border border-red-600 ring-2 ring-red-500 ring-opacity-50;
+}
+
+.invalid-feedback {
+  @apply mt-1 px-0.5 text-sm text-red-600;
+}
+
 .lighting {
   @apply p-1 bg-white text-xs md:text-sm font-mono rounded;
 }
