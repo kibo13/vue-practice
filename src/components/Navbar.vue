@@ -1,8 +1,8 @@
 <template>
   <div>
     <nav class="w-full">
-      <div class="flex justify-between items-center">
-        <h1 class="w-full text-center font-bold border-b border-gray-100">
+      <div class="flex justify-between items-center border-b">
+        <h1 class="w-full title">
           <router-link :to="{name: 'home'}" class="block p-4">
             Практика по Vue.js
           </router-link>

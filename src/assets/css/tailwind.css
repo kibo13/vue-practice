@@ -16,6 +16,26 @@
   @apply bg-white rounded overflow-hidden shadow-sm hover:shadow-lg relative transition ease-out duration-500;
 }
 
+.modal-bg {
+  @apply px-8 md:px-0 flex justify-center items-start bg-black bg-opacity-25 absolute inset-0 z-10;
+}
+
+.modal-form {
+  @apply md:w-3/5 lg:w-2/5 transform translate-y-1/2 bg-white rounded shadow-lg;
+}
+
+.modal-form__header {
+  @apply px-4 py-2 flex justify-between items-center text-lg border-b;
+}
+
+.modal-form__content {
+  @apply px-4 py-2 border-b overflow-y-auto;
+}
+
+.modal-form__footer {
+  @apply px-4 py-1 flex justify-end;
+}
+
 .input {
   @apply px-2 py-1 rounded shadow-sm;
 }

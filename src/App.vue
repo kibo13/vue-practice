@@ -1,11 +1,11 @@
 <template>
-  <div class="grid md:grid-cols-5 text-gray-600 font-base">
+  <div class="grid md:grid-cols-5 text-gray-600 font-base relative">
     <!-- Start navbar -->
     <app-navbar class="md:col-span-1 md:flex md:justify-end" />
     <!-- End navbar -->
 
     <main
-      class="md:col-span-4 md:px-16 px-10 py-6 bg-gray-100 overflow-x-hidden"
+      class="md:col-span-4 md:px-10 px-4 py-6 bg-gray-100 overflow-x-hidden"
     >
       <!-- Start header -->
       <app-header />

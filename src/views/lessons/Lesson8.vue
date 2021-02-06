@@ -1,21 +1,28 @@
 <template>
-  <div>
-    <h4 class="font-bold mt-5 pb-2 border-b">
-      <span>Модуль #{{ id }} / </span>
-      <app-loading
-        v-if="isLoading"
-        class="text-sm text-gray-400 font-semibold"
-      />
-      <app-error-message
-        v-if="error"
-        :message="error"
-        class="text-sm text-gray-400 font-semibold"
-      />
-      <span class="text-sm text-gray-400 font-semibold">
-        {{ getLesson.title }}
-      </span>
+  <div class="info">
+    <h4 class="mt-5 pb-2 border-b">
+      <span class="title">Модуль #{{ id }}&nbsp;/&nbsp;</span>
+      <app-loading v-if="isLoading" />
+      <app-error-message v-if="error" :message="error" />
+      <span>{{ getLesson.title }}</span>
     </h4>
-    <div class="mt-4"></div>
+    <div class="mt-2">
+      <!-- Start task -->
+      <div class="mb-2">
+        <span class="title">Задание:&nbsp;</span>реализовать ...
+      </div>
+      <!-- END task -->
+
+      <!-- Start result -->
+      <div class="mb-2"></div>
+      <!-- End result -->
+
+      <!-- Start detail -->
+      <div>
+        <h4 class="title">Решение:</h4>
+      </div>
+      <!-- End detail -->
+    </div>
   </div>
 </template>
 
@@ -33,7 +40,8 @@ export default {
 
   data() {
     return {
-      id: 8
+      id: 8,
+      code: {html: 'html', js: 'js'}
     }
   },
 
@@ -46,6 +54,8 @@ export default {
     getLesson() {
       return this.$store.getters.getLessonById(this.id)
     }
-  }
+  },
+
+  methods: {}
 }
 </script>
