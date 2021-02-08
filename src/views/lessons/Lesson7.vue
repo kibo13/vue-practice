@@ -24,10 +24,7 @@
         <span class="title">Жизненный цикл компонентов</span> - некоторая
         последовательность этапов, которая позволяет узнать когда компонент
         создается, добавляется в модель DOM, обновляется или уничтожается.
-        <button
-          @click="openModal"
-          class="text-sm font-semibold text-blue-500 hover:text-blue-400 slow"
-        >
+        <button @click="openModal" class="link text-sm">
           Читать далее &rarr;
         </button>
         <app-modal
@@ -99,7 +96,7 @@
           атрибуту disabled привяжем переменную not isRead.
           <pre
             class="code-wrapper"
-          ><code :data-code=code.html class="code"><span class="block">&lt;div class="modal-bg"&gt;</span><span class="block">  &lt;div class="modal-form"&gt;</span><br /><span class="block italic">    &lt;!-- блок "Header" --&gt;</span><span class="block">    &lt;div class="modal-form__header"&gt;</span><span class="block">      &lt;h2&gt;{<span>{</span> title }}&lt;/h2&gt;</span><span class="block">      &lt;button @click="closeModal"&gt;&#10006;&lt;/button&gt;</span><span class="block">    &lt;/div&gt;</span><span class="block">    &lt;div</span><br /><span class="block italic">    &lt;!-- блок "Content" --&gt;</span><span class="block">      class="modal-form__content"</span><span class="block">      style="height: 200px; overflow-y: auto;"  </span><span class="block">      <span class="title">ref</span>="modalBody"</span><span class="block">      @scroll="onBodyScroll"</span><span class="block">    &gt;</span><span class="block">      &lt;<span class="title">slot</span> name="content"&gt;&lt;/<span class="title">slot</span>&gt;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block italic">    &lt;!-- блок "Footer" --&gt;</span><span class="block">    &lt;div class="modal-form__footer"&gt;</span><span class="block">      &lt;button</span><span class="block">        @click="closeModal"</span><span class="block">        :disabled="!isRead"</span><span class="block">      &gt;</span><span class="block">        Прочитал</span><span class="block">      &lt;button&gt;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block">  &lt;/div&gt;</span><span class="block">&lt;/div&gt;</span></code></pre>
+          ><code :data-code=code.html class="code"><span class="block">&lt;div class="modal-bg"&gt;</span><span class="block">  &lt;div class="modal-form"&gt;</span><br /><span class="block italic">    &lt;!-- блок "Header" --&gt;</span><span class="block">    &lt;div class="modal-form__header"&gt;</span><span class="block">      &lt;h2&gt;{<span>{</span> title }}&lt;/h2&gt;</span><span class="block">      &lt;button @click="closeModal"&gt;&#10006;&lt;/button&gt;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block italic">    &lt;!-- блок "Content" --&gt;</span><span class="block">    &lt;div</span><span class="block">      class="modal-form__content"</span><span class="block">      style="height: 200px; overflow-y: auto;"  </span><span class="block">      <span class="title">ref</span>="modalBody"</span><span class="block">      @scroll="onBodyScroll"</span><span class="block">    &gt;</span><span class="block">      &lt;<span class="title">slot</span> name="content"&gt;&lt;/<span class="title">slot</span>&gt;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block italic">    &lt;!-- блок "Footer" --&gt;</span><span class="block">    &lt;div class="modal-form__footer"&gt;</span><span class="block">      &lt;button</span><span class="block">        @click="closeModal"</span><span class="block">        :disabled="!isRead"</span><span class="block">      &gt;</span><span class="block">        Прочитал</span><span class="block">      &lt;button&gt;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block">  &lt;/div&gt;</span><span class="block">&lt;/div&gt;</span></code></pre>
         </div>
         <div>
           Теперь напишем метод onBodyScroll, которой будет переводить кнопку
@@ -138,7 +135,7 @@
 import {mapState} from 'vuex'
 import AppLoading from '@/components/Loading'
 import AppErrorMessage from '@/components/ErrorMessage'
-import AppModal from '@/components/lesson_07/Modal'
+import AppModal from '@/components/Modal'
 
 export default {
   name: 'AppLesson7',

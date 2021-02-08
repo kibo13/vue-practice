@@ -52,6 +52,10 @@
   @apply p-1 bg-white text-xs md:text-sm font-mono rounded;
 }
 
+.link {
+  @apply font-semibold text-blue-500 hover:text-blue-400 slow;
+}
+
 .title {
   @apply text-gray-600 font-bold;
 }

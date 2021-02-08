@@ -7,12 +7,7 @@
           &#10006;
         </button>
       </div>
-      <div
-        style="height: 200px"
-        class="modal-form__content"
-        ref="modalBody"
-        @scroll="onBodyScroll"
-      >
+      <div style="height: 200px" class="modal-form__content" @scroll="onScroll">
         <slot name="content"></slot>
       </div>
       <div class="modal-form__footer">
@@ -51,16 +46,12 @@ export default {
       this.$emit('close')
     },
 
-    onBodyScroll() {
-      const modalBody = this.$refs.modalBody
-      if (
-        modalBody.clientHeight + modalBody.scrollTop >=
-        modalBody.scrollHeight
-      ) {
-        this.isRead = true
-      } else {
-        this.isRead = false
-      }
+    onScrollEnd() {
+      this.isRead = true
+    },
+
+    onScrollStart() {
+      this.isRead = false
     }
   }
 }
