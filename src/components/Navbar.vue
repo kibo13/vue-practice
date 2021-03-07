@@ -30,6 +30,7 @@
       <app-error-message v-if="error" :message="error" />
       <ul v-if="!isMenuVisible" class="text-sm md:block">
         <li
+          @click="toggleMenu"
           v-for="lesson in lessons.length"
           :key="lesson"
           class="border-b hover:bg-gray-100 slow"
@@ -88,7 +89,9 @@ export default {
     ...mapActions(['getCourse']),
 
     toggleMenu() {
-      this.isMenuVisible = !this.isMenuVisible
+      if (window.innerWidth < this.mdWidth) {
+        this.isMenuVisible = !this.isMenuVisible
+      }
     },
 
     handleView() {

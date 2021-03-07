@@ -1,7 +1,7 @@
 <template>
-  <span>
+  <div>
     {{ message }}
-  </span>
+  </div>
 </template>
 
 <script>

@@ -1,12 +1,13 @@
 <template>
   <div class="info">
-    <h4 class="mt-5 pb-2 border-b">
-      <span class="title">Модуль #{{ id }}&nbsp;/&nbsp;</span>
-      <app-loading v-if="isLoading" />
-      <app-error-message v-if="error" :message="error" />
-      <span>{{ getLesson.title }}</span>
-    </h4>
-    <div class="mt-2">
+    <app-loading v-if="isLoading" class="my-2 py-2" />
+    <app-error-message v-if="error" :message="error" class="my-2 py-2" />
+
+    <div v-if="getLesson.id">
+      <h4 class="my-2 py-2 border-b">
+        <span class="title">Модуль #{{ getLesson.id }}&nbsp;/&nbsp;</span>
+        <span>{{ getLesson.title }}</span>
+      </h4>
       <!-- Start task -->
       <div class="mb-2">
         <span class="title">Задание:&nbsp;</span>реализовать простую форму, в

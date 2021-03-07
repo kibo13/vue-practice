@@ -1,7 +1,7 @@
 <template>
-  <span>
+  <div>
     Загрузка данных...
-  </span>
+  </div>
 </template>
 
 <script>

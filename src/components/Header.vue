@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h2 class="text-xl md:text-3xl text-gray-700 font-semibold">
+    <h2 class="mb-2 text-xl md:text-3xl text-semibold">
       Практика по Vue.js
     </h2>
     <h3 class="info">

@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-main {
+  @apply bg-gray-100;
+}
+
 .active {
   @apply bg-gray-100;
 }
