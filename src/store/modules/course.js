@@ -30,8 +30,8 @@ const actions = {
       courseApi
         .getCourse()
         .then(response => {
-          context.commit('getCourseSuccess', response.data)
-          resolve(response.data)
+          context.commit('getCourseSuccess', response.data.lessons)
+          resolve(response.data.lessons)
         })
         .catch(error => {
           context.commit('getCourseFailure', error)

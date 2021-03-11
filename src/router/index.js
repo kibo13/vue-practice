@@ -2,17 +2,17 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '@/views/Home'
-import LessonOne from '@/views/lessons/Lesson1'
-import LessonTwo from '@/views/lessons/Lesson2'
-import LessonThree from '@/views/lessons/Lesson3'
-import LessonFour from '@/views/lessons/Lesson4'
-import LessonFive from '@/views/lessons/Lesson5'
-import LessonSix from '@/views/lessons/Lesson6'
-import LessonSeven from '@/views/lessons/Lesson7'
-import LessonEight from '@/views/lessons/Lesson8'
-import LessonNine from '@/views/lessons/Lesson9'
-import LessonTen from '@/views/lessons/Lesson10'
-import LessonEleven from '@/views/lessons/Lesson11'
+import L01 from '@/views/lessons/01'
+import L02 from '@/views/lessons/02'
+import L03 from '@/views/lessons/03'
+import L04 from '@/views/lessons/04'
+import L05 from '@/views/lessons/05'
+import L06 from '@/views/lessons/06'
+import L07 from '@/views/lessons/07'
+import L08 from '@/views/lessons/08'
+import L09 from '@/views/lessons/09'
+import L10 from '@/views/lessons/10'
+import L11 from '@/views/lessons/11'
 
 Vue.use(Router)
 
@@ -24,59 +24,59 @@ export default new Router({
       component: Home
     },
     {
-      path: '/lesson-01',
+      path: '/lessons/1',
       name: 'lesson1',
-      component: LessonOne
+      component: L01
     },
     {
-      path: '/lesson-02',
+      path: '/lessons/2',
       name: 'lesson2',
-      component: LessonTwo
+      component: L02
     },
     {
-      path: '/lesson-03',
+      path: '/lessons/3',
       name: 'lesson3',
-      component: LessonThree
+      component: L03
     },
     {
-      path: '/lesson-04',
+      path: '/lessons/4',
       name: 'lesson4',
-      component: LessonFour
+      component: L04
     },
     {
-      path: '/lesson-05',
+      path: '/lessons/5',
       name: 'lesson5',
-      component: LessonFive
+      component: L05
     },
     {
-      path: '/lesson-06',
+      path: '/lessons/6',
       name: 'lesson6',
-      component: LessonSix
+      component: L06
     },
     {
-      path: '/lesson-07',
+      path: '/lessons/7',
       name: 'lesson7',
-      component: LessonSeven
+      component: L07
     },
     {
-      path: '/lesson-08',
+      path: '/lessons/8',
       name: 'lesson8',
-      component: LessonEight
+      component: L08
     },
     {
-      path: '/lesson-09',
+      path: '/lessons/9',
       name: 'lesson9',
-      component: LessonNine
+      component: L09
     },
     {
-      path: '/lesson-10',
+      path: '/lessons/10',
       name: 'lesson10',
-      component: LessonTen
+      component: L10
     },
     {
-      path: '/lesson-11',
+      path: '/lessons/11',
       name: 'lesson11',
-      component: LessonEleven
+      component: L11
     }
   ]
 })

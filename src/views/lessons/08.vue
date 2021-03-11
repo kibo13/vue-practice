@@ -101,18 +101,19 @@
           ><code :data-code=code.js class="code"><span class="block">import AppModal from '@/components/AppModal'  </span><br /><span class="block">export default {</span><span class="block">  name: 'app',</span><span class="block">  components: {</span><span class="block">    AppModal</span><span class="block">  },</span><br /><span class="block">  data() {</span><span class="block">    return {</span><span class="block">      isModal: false</span><span class="block">    }</span><span class="block">  },</span><br /><span class="block">  methods: {</span><span class="block">    openModal() {</span><span class="block">      this.isModal = true</span><span class="block">    }</span><span class="block">  }</span><span class="block">}</span></code></pre>
         </div>
         <div>
-          Создадим в <span class="lighting">`./src`</span> папку mixins, внутри
-          которой создадим файл scrollHandler.js и перенесем туда метод
-          onBodyScroll из компонента Modal.vue. Изменим имя метода на
-          <span class="title">onScroll</span> и уберем refs. Так как в функцию
-          при событии scroll передается event, то воспользуемся свойством
-          target, чтобы получить доступ к DOM-элементу, на котором сработало это
-          событие. Создадим метод <span class="title">onScrollEnd</span>,
-          который будет выполняться тогда, когда пользователь проскроллит
-          контент до конца. Поместим в него сообщение о том, что событие
-          произошло, а в самом компоненте переопределим данный метод, в котором
-          будем менять состояние кнопки. В разметке компонента Modal.vue уберем
-          refs и изменим метод на <span class="title">onScroll</span>.
+          В корне приложения создадим директорию
+          <span class="lighting">mixins</span>, внутри которой создадим файл
+          scrollHandler.js и перенесем туда метод onBodyScroll из компонента
+          Modal.vue. Изменим имя метода на <span class="title">onScroll</span> и
+          уберем refs. Так как в функцию при событии scroll передается event, то
+          воспользуемся свойством target, чтобы получить доступ к DOM-элементу,
+          на котором сработало это событие. Создадим метод
+          <span class="title">onScrollEnd</span>, который будет выполняться
+          тогда, когда пользователь проскроллит контент до конца. Поместим в
+          него сообщение о том, что событие произошло, а в самом компоненте
+          переопределим данный метод, в котором будем менять состояние кнопки. В
+          разметке компонента Modal.vue уберем refs и изменим метод на
+          <span class="title">onScroll</span>.
           <pre
             class="code-wrapper"
           ><code :data-code=code.js class="code"><span class="block italic">// scrollHandler.js</span><span class="block">export default {</span><span class="block">  methods: {</span><span class="block">    <span class="title">onScrollEnd</span>() {</span><span class="block">      console.warn('You must override onScrollEnd method')</span><span class="block">    },</span><br /><span class="block">    <span class="title">onScroll</span>(event) {</span><span class="block">      const content = event.target</span><span class="block">      if (content.clientHeight + content.scrollTop >= content.scrollHeight) {  </span><span class="block">        this.<span class="title">onScrollEnd</span>()</span><span class="block">      }</span><span class="block">    }</span><span class="block">  }</span><span class="block">}</span></code></pre>
@@ -124,9 +125,10 @@
           ><code :data-code=code.html class="code"><span class="block italic">&lt;!-- Modal.vue --&gt;</span><span class="block">&lt;div class="modal-bg"&gt;</span><span class="block">  &lt;div class="modal-form"&gt;</span><br /><span class="block italic">    &lt;!-- блок "Header" --&gt;</span><span class="block">    &lt;div class="modal-form__header"&gt; &middot;&middot;&middot;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block italic">    &lt;!-- блок "Content" --&gt;</span><span class="block">    &lt;div</span><span class="block">      class="modal-form__content"</span><span class="block">      style="height: 200px; overflow-y: auto;"  </span><span class="block">      @scroll="<span class="title">onScroll</span>"</span><span class="block">    &gt;</span><span class="block">      &lt;slot name="content"&gt;&lt;/slot&gt;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block italic">    &lt;!-- блок "Footer" --&gt;</span><span class="block">    &lt;div class="modal-form__footer"&gt; &middot;&middot;&middot;</span><span class="block">    &lt;/div&gt;</span><br /><span class="block">  &lt;/div&gt;</span><span class="block">&lt;/div&gt;</span></code></pre>
         </div>
         <div>
-          Создадим в <span class="lighting">`./src`</span> папку plugins, внутри
-          которой создадим файл myPlugin.js. Затем подключим внутрь этого
-          плагина миксин, чтобы тот стал доступен глобально.
+          В корне приложения создадим директорию
+          <span class="lighting">plugins</span>, внутри которой создадим файл
+          myPlugin.js. Затем подключим внутрь этого плагина миксин, чтобы тот
+          стал доступен глобально.
           <pre
             class="code-wrapper"
           ><code :data-code=code.js class="code"><span class="block italic">// myPlugin.js</span><span class="block">import ScrollHandlerMixin from '@/mixins/scrollHandler'  </span><br /><span class="block">export default {</span><span class="block">  install(Vue) {</span><span class="block">    Vue.mixin(ScrollHandlerMixin)</span><span class="block">  }</span><span class="block">}</span></code></pre>
